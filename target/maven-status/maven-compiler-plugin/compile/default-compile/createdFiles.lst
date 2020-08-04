@@ -1,0 +1,4 @@
+com\aptech\qldsv\form\test.class
+com\aptech\qldsv\utils\HibernateUtils.class
+com\aptech\qldsv\dao\SubjectDAO.class
+com\aptech\qldsv\entity\Subject.class
