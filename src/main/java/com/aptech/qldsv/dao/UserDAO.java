@@ -5,7 +5,7 @@
  */
 package com.aptech.qldsv.dao;
 
-import com.aptech.qldsv.entity.Subject;
+import com.aptech.qldsv.entity.User;
 import com.aptech.qldsv.utils.HibernateUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,20 +16,20 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author Administrator
+ * @author skulb
  */
-public class SubjectDAO {
+public class UserDAO {
     
     private SessionFactory factory = HibernateUtils.getSessionFactory();
     
-    public List<Subject> getAllSubject( ){
+    public List<User> getAllScoreType( ){
         Session session = factory.openSession();
         Transaction tx = null;
-        List<Subject> lstSubjects = new ArrayList<>();
+        List<User> lstUser = new ArrayList<>();
       
         try {
             tx = session.beginTransaction();
-            lstSubjects = session.createQuery("FROM Subject").list(); 
+            lstUser = session.createQuery("FROM User").list(); 
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -37,6 +37,6 @@ public class SubjectDAO {
             session.close(); 
         }
         
-       return lstSubjects;
+       return lstUser;
     }
 }

@@ -55,5 +55,10 @@ Contributor(s):
       <property name="show_sql">true</property>
     
     <mapping class="com.aptech.qldsv.entity.Subject" />
+    <mapping class="com.aptech.qldsv.entity.Student" />
+    <mapping class="com.aptech.qldsv.entity.Classes" />
+    <mapping class="com.aptech.qldsv.entity.Score" />
+    <mapping class="com.aptech.qldsv.entity.ScoreType" />
+    <mapping class="com.aptech.qldsv.entity.User" />
   </session-factory>
 </hibernate-configuration>
