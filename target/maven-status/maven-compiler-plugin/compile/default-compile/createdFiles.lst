@@ -7,7 +7,6 @@ com\aptech\qldsv\entity\User.class
 com\aptech\qldsv\dao\ClassDAO.class
 com\aptech\qldsv\dao\StudentDAO.class
 com\aptech\qldsv\entity\ScoreId.class
-com\aptech\qldsv\service\StudentService.class
 com\aptech\qldsv\form\test.class
 com\aptech\qldsv\form\MainForm.class
 com\aptech\qldsv\dao\UserDAO.class
