@@ -7,16 +7,13 @@ package com.aptech.qldsv.dao;
 
 import com.aptech.qldsv.entity.Student;
 import com.aptech.qldsv.utils.HibernateUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
@@ -25,8 +22,6 @@ import javax.persistence.Persistence;
 public class StudentDAO {
 
     private SessionFactory factory = HibernateUtils.getSessionFactory();
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
-    private EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public List<Student> getAllStudent( ){
         Session session = factory.openSession();
@@ -47,24 +42,57 @@ public class StudentDAO {
     }
 
     public Student findStudentById(int id) {
-        Student student = entityManager.find(Student.class, id);
+        Session session = factory.openSession();
+        Student student = session.load(Student.class, id);
+        System.out.println(student);
         return student;
     }
 
     public void saveStudent(Student student) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(student);
-        entityManager.getTransaction().commit();
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            session.save(student);
+            session.getTransaction().commit();
+            System.out.println("insert success!");
+        } catch (RuntimeException e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
 
-    public void deleteStudent(Student student) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(student);
-        entityManager.getTransaction().commit();
+    public void updateName(int id, String name) {
+        Session session = factory.openSession();
+        String sql = "UPDATE Student u SET u.name = :newName WHERE u.id = :id";
+        session.createQuery(sql).setParameter("newName", name).setParameter("id", id).executeUpdate();
     }
 
-    public void close() {
-        entityManager.close();
-        entityManagerFactory.close();
+    public void deleteStudent(int id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Student student = session.load(Student.class, id);
+            session.delete(student);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+    public void searchByName(String name) {
+        Session session = factory.openSession();
+        List<Student> list = session.createQuery("FROM Student WHERE name LIKE :name")
+                .setParameter("name", "%" + name + "%").list();
+        for (Student student : list) {
+            System.out.println(student);
+        }
     }
 }

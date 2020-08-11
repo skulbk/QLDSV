@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f82de247-6deb-4884-96e5-f94f6b7cad34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/QLDSV-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/QLDSV-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ClassDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ClassDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreTypeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreTypeDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/StudentDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/SubjectDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/SubjectDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Classes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Score$ScoreId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Score.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreId.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Subject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/utils/HibernateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/utils/HibernateUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597115397167</updated>
-      <workItem from="1597115398596" duration="3280000" />
+      <workItem from="1597115398596" duration="7304000" />
     </task>
     <servers />
   </component>
