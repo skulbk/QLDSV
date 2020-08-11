@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f82de247-6deb-4884-96e5-f94f6b7cad34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_34.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QLDSV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QLDSV.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597115397167</updated>
       <workItem from="1597115398596" duration="8348000" />
+      <workItem from="1597137577425" duration="1153000" />
     </task>
     <servers />
   </component>
@@ -61,7 +61,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
