@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f82de247-6deb-4884-96e5-f94f6b7cad34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/QLDSV-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/QLDSV-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/service/StudentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597115397167</updated>
-      <workItem from="1597115398596" duration="7739000" />
+      <workItem from="1597115398596" duration="8047000" />
     </task>
     <servers />
   </component>
