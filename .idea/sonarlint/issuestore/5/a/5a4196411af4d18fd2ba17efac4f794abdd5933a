@@ -1,0 +1,14 @@
+
+V
+squid:S1069"9Replace this use of System.out or System.err by a logger.(“êèÏ8¿³Ÿå½.
+Fsquid:S1148["#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÁÄå½.
+[
+squid:S106X"9Replace this use of System.out or System.err by a logger.(æÎÇıÿÿÿÿ8»ÊÂå½.
+V
+squid:S106/"9Replace this use of System.out or System.err by a logger.(„íí8ú“¢å½.
+V
+squid:S106h"9Replace this use of System.out or System.err by a logger.(„íí8ªÈ×å½.
+Fsquid:S1148<"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‚ú”å½.
+Fsquid:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾úûå½.
+hsquid:S2095-"EUse try-with-resources or close this "Session" in a "finally" clause.(Ê€Û§úÿÿÿÿ8ñÔ™å½.
+Fsquid:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊÙôå½.
