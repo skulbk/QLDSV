@@ -14,13 +14,19 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author skulb
  */
 public class StudentDAO {
-    
+
     private SessionFactory factory = HibernateUtils.getSessionFactory();
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
+    private EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public List<Student> getAllStudent( ){
         Session session = factory.openSession();
@@ -38,5 +44,27 @@ public class StudentDAO {
         }
         
        return lstStudent;
+    }
+
+    public Student findStudentById(int id) {
+        Student student = entityManager.find(Student.class, id);
+        return student;
+    }
+
+    public void saveStudent(Student student) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(student);
+        entityManager.getTransaction().commit();
+    }
+
+    public void deleteStudent(Student student) {
+        entityManager.getTransaction().begin();
+        entityManager.remove(student);
+        entityManager.getTransaction().commit();
+    }
+
+    public void close() {
+        entityManager.close();
+        entityManagerFactory.close();
     }
 }

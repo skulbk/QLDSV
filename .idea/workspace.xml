@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f82de247-6deb-4884-96e5-f94f6b7cad34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/QLDSV-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/QLDSV-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ClassDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ClassDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreTypeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/ScoreTypeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/SubjectDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/SubjectDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Classes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Score$ScoreId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Score.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/ScoreType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/Subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/form/MainForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/utils/HibernateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aptech/qldsv/utils/HibernateUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1fw3bH1VXo2JWcJXhK6OIER0Ijm" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f82de247-6deb-4884-96e5-f94f6b7cad34" name="Default Changelist" comment="" />
+      <created>1597115397167</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597115397167</updated>
+      <workItem from="1597115398596" duration="3280000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
