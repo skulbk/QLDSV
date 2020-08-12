@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f82de247-6deb-4884-96e5-f94f6b7cad34" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/form/SinhVienForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/form/SinhVienForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/form/SinhVienForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/form/SinhVienForm.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +50,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597115397167</updated>
-      <workItem from="1597115398596" duration="8348000" />
-      <workItem from="1597137577425" duration="1153000" />
+      <workItem from="1597115398596" duration="7739000" />
+      <workItem from="1597198315968" duration="4047000" />
     </task>
     <servers />
   </component>
