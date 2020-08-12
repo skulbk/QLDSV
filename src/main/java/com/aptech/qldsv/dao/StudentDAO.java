@@ -45,6 +45,7 @@ public class StudentDAO {
         Session session = factory.openSession();
         Student student = session.load(Student.class, id);
         System.out.println(student);
+        session.close();
         return student;
     }
 
