@@ -1,0 +1,14 @@
+
+asquid:S2095-"EUse try-with-resources or close this "Session" in a "finally" clause.(Ê€Û§úÿÿÿÿ
+?squid:S1148<"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+?squid:S1148J"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+?squid:S1148["#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+?squid:S1148k"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+O
+squid:S106/"9Replace this use of System.out or System.err by a logger.(„íí
+O
+squid:S1069"9Replace this use of System.out or System.err by a logger.(“êèÏ
+T
+squid:S106X"9Replace this use of System.out or System.err by a logger.(æÎÇýÿÿÿÿ
+O
+squid:S106h"9Replace this use of System.out or System.err by a logger.(„íí

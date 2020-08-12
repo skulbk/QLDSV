@@ -15,9 +15,11 @@ public class SinhVienForm {
     private JTextArea addressTxt;
     private JLabel addressLabel;
     private JButton sửaButton;
-    private JButton resetButton;
+    private JButton nhậpLạiButton;
     private JButton thêmButton;
     private JButton xóaButton;
+    private JButton sắpXếpTheoTênButton;
+    private JButton sắpXếpTheoĐiểmButton;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
