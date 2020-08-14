@@ -19,3 +19,7 @@ e
 5src/main/java/com/aptech/qldsv/form/SinhVienForm.java,f\3\f3b24482b95c73d5cd7395c20bae3bdb37315e49
 e
 5src/main/java/com/aptech/qldsv/form/SinhVienForm.form,b\d\bd8ecad70f7e2e33846520668a466ed5b705b35d
+b
+2src/main/java/com/aptech/qldsv/entity/Subject.java,2\e\2e21618c0c80db7df99dd36c4c42503915a7f78a
+_
+/src/main/java/com/aptech/qldsv/entity/User.java,1\1\1144e8deb8673620685dfb50feec2f5a11491589

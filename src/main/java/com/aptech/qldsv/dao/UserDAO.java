@@ -79,4 +79,21 @@ public class UserDAO {
             session.close();
         }
     }
+
+    public void deleteUser(int id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            User user = session.load(User.class, id);
+            session.delete(user);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
 }
