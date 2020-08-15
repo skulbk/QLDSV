@@ -37,7 +37,6 @@ public class StudentDAO {
         } finally {
             session.close();
         }
-
         return lstStudent;
     }
 

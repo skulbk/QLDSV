@@ -29,7 +29,7 @@ public class Student implements Serializable {
     @Column(name = "birthday")
     private String birthday;
     @Column(name = "gender")
-    private String gender;
+    private Boolean gender;
     @Column(name = "address")
     private String address;
     
@@ -40,7 +40,7 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String id, String name, String birthday, String gender, String address, Classes clazz) {
+    public Student(String id, String name, String birthday, Boolean gender, String address, Classes clazz) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -73,14 +73,6 @@ public class Student implements Serializable {
         this.birthday = birthday;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -97,6 +89,14 @@ public class Student implements Serializable {
         this.clazz = clazz;
     }
 
+    public Boolean getGender() {
+        return gender;
+    }
+
+    public void setGender(Boolean gender) {
+        this.gender = gender;
+    }
+    
     @Override
     public String toString() {
         return "Student{" + "id=" + id + ", name=" + name + ", birthday=" + birthday + ", gender=" + gender + ", address=" + address + ", clazz=" + clazz + '}';

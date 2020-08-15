@@ -44,7 +44,7 @@ public class test {
         
         UserDAO userDAO = new UserDAO();
         List<User> lstUser = new ArrayList<>();
-        lstUser = userDAO.getAllScoreType();
+        lstUser = userDAO.getAllUsers();
         System.out.println("======== User: "+lstUser);
         
         ScoreTypeDAO typeDAO = new ScoreTypeDAO();

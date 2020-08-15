@@ -22,7 +22,7 @@ public class UserDAO {
     
     private SessionFactory factory = HibernateUtils.getSessionFactory();
     
-    public List<User> getAllScoreType( ){
+    public List<User> getAllUsers( ){
         Session session = factory.openSession();
         Transaction tx = null;
         List<User> lstUser = new ArrayList<>();
