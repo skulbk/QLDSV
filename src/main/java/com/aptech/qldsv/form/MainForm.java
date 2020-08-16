@@ -7,6 +7,7 @@ package com.aptech.qldsv.form;
 
 import com.aptech.qldsv.controller.ClassController;
 import com.aptech.qldsv.controller.StudentController;
+import com.aptech.qldsv.controller.SubjectController;
 import com.aptech.qldsv.dao.SubjectDAO;
 import com.aptech.qldsv.entity.Classes;
 import com.aptech.qldsv.entity.Student;
@@ -32,7 +33,7 @@ import javax.swing.table.TableRowSorter;
 public final class MainForm extends javax.swing.JFrame {
 
     ClassController classController = new ClassController();
-    SubjectDAO subjectDAO = new SubjectDAO();
+    SubjectController subjectController = new SubjectController();
     StudentController studentController = new StudentController();
 //    DiemDAO diemDAO = new DiemDAO();
 //    LoaiDiemDAO ldDAO = new LoaiDiemDAO();
@@ -72,14 +73,17 @@ public final class MainForm extends javax.swing.JFrame {
         pnlDashboard = new javax.swing.JPanel();
         lblwelcome = new javax.swing.JLabel();
         pnlLop = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btnThemlop = new javax.swing.JButton();
-        btnSualop = new javax.swing.JButton();
-        btnXoalop = new javax.swing.JButton();
-        pnlDSLop = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblDSLop = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtClassName = new javax.swing.JTextField();
+        btnAddClass = new javax.swing.JButton();
+        btnUpdateClass = new javax.swing.JButton();
+        btnDeleteClass = new javax.swing.JButton();
+        btnClearClass = new javax.swing.JButton();
+        txtClassId = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblClass = new javax.swing.JTable();
         pnlMon = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -90,6 +94,7 @@ public final class MainForm extends javax.swing.JFrame {
         btnDeleteSubject = new javax.swing.JButton();
         btnClearSubject = new javax.swing.JButton();
         txtSubjectId = new javax.swing.JTextField();
+        test = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblSubject = new javax.swing.JTable();
         pnlSV = new javax.swing.JPanel();
@@ -205,74 +210,99 @@ public final class MainForm extends javax.swing.JFrame {
             .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblwelcome)
-                .addContainerGap(460, Short.MAX_VALUE))
+                .addContainerGap(447, Short.MAX_VALUE))
         );
 
         pnlContent.add(pnlDashboard, "cardDashboard");
 
         pnlLop.setPreferredSize(new java.awt.Dimension(85, 23));
-        pnlLop.setLayout(new java.awt.BorderLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setText("Danh sách lớp");
+        jLabel11.setText("Id");
 
-        btnThemlop.setText("Thêm");
-        btnThemlop.addActionListener(new java.awt.event.ActionListener() {
+        jLabel12.setText("Tên lớp");
+
+        btnAddClass.setText("Thêm");
+        btnAddClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemlopActionPerformed(evt);
+                btnAddClassActionPerformed(evt);
             }
         });
 
-        btnSualop.setText("Sửa");
-        btnSualop.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateClass.setText("Sửa");
+        btnUpdateClass.setEnabled(false);
+        btnUpdateClass.setPreferredSize(new java.awt.Dimension(73, 23));
+        btnUpdateClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSualopActionPerformed(evt);
+                btnUpdateClassActionPerformed(evt);
             }
         });
 
-        btnXoalop.setText("Xóa");
-        btnXoalop.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteClass.setText("Xóa");
+        btnDeleteClass.setEnabled(false);
+        btnDeleteClass.setPreferredSize(new java.awt.Dimension(73, 23));
+        btnDeleteClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoalopActionPerformed(evt);
+                btnDeleteClassActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(256, 256, 256))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        btnClearClass.setText("Nhập lại");
+        btnClearClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearClassActionPerformed(evt);
+            }
+        });
+
+        txtClassId.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnThemlop, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSualop, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnXoalop, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtClassName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtClassId, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnClearClass))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(btnAddClass, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUpdateClass, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeleteClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThemlop)
-                    .addComponent(btnSualop)
-                    .addComponent(btnXoalop))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtClassId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtClassName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(213, 213, 213)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddClass)
+                    .addComponent(btnUpdateClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnClearClass)
+                .addGap(166, 166, 166))
         );
 
-        pnlLop.add(jPanel1, java.awt.BorderLayout.PAGE_START);
-
-        pnlDSLop.setLayout(new javax.swing.BoxLayout(pnlDSLop, javax.swing.BoxLayout.LINE_AXIS));
-
-        tblDSLop.setAutoCreateRowSorter(true);
-        tblDSLop.setModel(new javax.swing.table.DefaultTableModel(
+        tblClass.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -283,16 +313,29 @@ public final class MainForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblDSLop.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblClass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblDSLopMouseClicked(evt);
+                tblClassMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblDSLop);
+        jScrollPane8.setViewportView(tblClass);
 
-        pnlDSLop.add(jScrollPane1);
-
-        pnlLop.add(pnlDSLop, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout pnlLopLayout = new javax.swing.GroupLayout(pnlLop);
+        pnlLop.setLayout(pnlLopLayout);
+        pnlLopLayout.setHorizontalGroup(
+            pnlLopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLopLayout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
+        );
+        pnlLopLayout.setVerticalGroup(
+            pnlLopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlLopLayout.createSequentialGroup()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pnlContent.add(pnlLop, "cardLop");
 
@@ -303,14 +346,45 @@ public final class MainForm extends javax.swing.JFrame {
         jLabel10.setText("Tên môn");
 
         btnAddSubject.setText("Thêm");
+        btnAddSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSubjectActionPerformed(evt);
+            }
+        });
 
         btnUpdateSubject.setText("Sửa");
+        btnUpdateSubject.setEnabled(false);
         btnUpdateSubject.setPreferredSize(new java.awt.Dimension(73, 23));
+        btnUpdateSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateSubjectActionPerformed(evt);
+            }
+        });
 
         btnDeleteSubject.setText("Xóa");
+        btnDeleteSubject.setEnabled(false);
         btnDeleteSubject.setPreferredSize(new java.awt.Dimension(73, 23));
+        btnDeleteSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteSubjectActionPerformed(evt);
+            }
+        });
 
         btnClearSubject.setText("Nhập lại");
+        btnClearSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearSubjectActionPerformed(evt);
+            }
+        });
+
+        txtSubjectId.setEnabled(false);
+
+        test.setText("test");
+        test.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -327,15 +401,18 @@ public final class MainForm extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSubjectName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtSubjectId, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnClearSubject))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(btnAddSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDeleteSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(test, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnClearSubject))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(btnUpdateSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDeleteSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -355,7 +432,9 @@ public final class MainForm extends javax.swing.JFrame {
                     .addComponent(btnUpdateSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteSubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClearSubject)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClearSubject)
+                    .addComponent(test))
                 .addGap(166, 166, 166))
         );
 
@@ -370,6 +449,11 @@ public final class MainForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblSubject.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSubjectMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(tblSubject);
 
         javax.swing.GroupLayout pnlMonLayout = new javax.swing.GroupLayout(pnlMon);
@@ -412,12 +496,16 @@ public final class MainForm extends javax.swing.JFrame {
         btnAddStudent.setText("Thêm");
 
         btnUpdateStudent.setText("Sửa");
+        btnUpdateStudent.setEnabled(false);
         btnUpdateStudent.setPreferredSize(new java.awt.Dimension(73, 23));
 
         btnDeleteStudent.setText("Xóa");
+        btnDeleteStudent.setEnabled(false);
         btnDeleteStudent.setPreferredSize(new java.awt.Dimension(73, 23));
 
         btnClearStudent.setText("Nhập lại");
+
+        txtStudentId.setEnabled(false);
 
         txtAddress.setColumns(20);
         txtAddress.setRows(5);
@@ -665,14 +753,13 @@ public final class MainForm extends javax.swing.JFrame {
     }
     
     public void reload(){
-        loadDSlop();
-        loadDSmon();
+        loadClassList();
+        loadSubjectList();
         loadDSDiem();
         loadStudentList();
         DisEn(false);
     }
-    public void loadDSlop(){
-        JTable table = new JTable();
+    public void loadClassList(){
         DefaultTableModel tbl = new DefaultTableModel();
         Object rows[] = new Object[2];
         Object cols[] = new Object[2];
@@ -681,28 +768,26 @@ public final class MainForm extends javax.swing.JFrame {
         
         tbl.setColumnIdentifiers(cols);
         
-//        List<Lop> listlop = lopDAO.getAll();
-//        
-//        for (int i = 0; i < listlop.size(); i++) {
-//            Lop l = listlop.get(i);
-//            rows[0] = l.getMaLop();
-//            rows[1] = l.getTenLop();
-//            
-//            tbl.addRow(rows);
-//        }
-        //table.setModel(tbl);
-        //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tblDSLop.getModel());
-        //tblDSLop.setRowSorter(sorter);
+       List<Classes> listlop = classController.getAllClass();
+        
+        for (int i = 0; i < listlop.size(); i++) {
+            Classes c = listlop.get(i);
+            rows[0] = c.getId();
+            rows[1] = c.getName();
+            
+            tbl.addRow(rows);
+        }
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tblClass.getModel());
+        tblClass.setRowSorter(sorter);
 
-        //List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
-        //sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
-        //sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
-        //sorter.setSortKeys(sortKeys);
-        //JScrollPane pane =new JScrollPane(table);
-        tblDSLop.setModel(tbl);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+        tblClass.setModel(tbl);
     }
     
-    public void loadDSmon(){
+    public void loadSubjectList(){
         DefaultTableModel tbl = new DefaultTableModel();
         Object rows[] = new Object[2];
         Object cols[] = new Object[2];
@@ -711,19 +796,28 @@ public final class MainForm extends javax.swing.JFrame {
         
         tbl.setColumnIdentifiers(cols);
         
-        List<Subject> listmon = subjectDAO.getAllSubject();
+        List<Subject> listSubject = subjectController.getAllSubject();
         
-        for (int i = 0; i < listmon.size(); i++) {
-            Subject m = listmon.get(i);
+        for (int i = 0; i < listSubject.size(); i++) {
+            Subject m = listSubject.get(i);
             rows[0] = m.getId();
             rows[1] = m.getName();
             
             tbl.addRow(rows);
         }
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tblSubject.getModel());
+        tblSubject.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
         tblSubject.setModel(tbl);
+        tbl.fireTableDataChanged();
     }
     
     public void loadStudentList(){
+        JTable table = new JTable();
         DefaultTableModel tbl = new DefaultTableModel();
         Object rows[] = new Object[6];
         Object cols[] = new Object[6];
@@ -757,6 +851,14 @@ public final class MainForm extends javax.swing.JFrame {
             
             tbl.addRow(rows);
         }
+        table.setModel(tbl);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tblStudent.getModel());
+        tblStudent.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
         tblStudent.setModel(tbl);
     }
     
@@ -840,49 +942,7 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void DisEn(boolean e)
     {
-    }
-    // <editor-fold defaultstate="collapsed" desc="Lop">
-    private void btnSualopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSualopActionPerformed
-        
-//        if(tblDSLop.getSelectedRowCount()==0)
-//            JOptionPane.showMessageDialog(pnlContent, "Mời chọn lại");
-//        else
-//        {
-//            int row = tblDSLop.getSelectedRow();
-//            int ma = (int) tblDSLop.getValueAt(row, 0);
-//            String name = tblDSLop.getValueAt(row, 1).toString();
-//            SuaLopDialog j = new SuaLopDialog(this, true,ma,name);
-//            j.setVisible(true);
-//            reload();
-//        }
-    }//GEN-LAST:event_btnSualopActionPerformed
-
-    private void btnThemlopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemlopActionPerformed
-        //FrmThemLop f = new FrmThemLop();
-        //f.setVisible(true);
-        
-//        ThemLopDialog j = new ThemLopDialog(this, true);
-//        j.setVisible(true);
-//        reload();
-    }//GEN-LAST:event_btnThemlopActionPerformed
-
-    private void btnXoalopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoalopActionPerformed
-//        int row = tblDSLop.getSelectedRow();
-//        String ma = tblDSLop.getValueAt(row, 0).toString();
-//        int i = JOptionPane.showConfirmDialog(pnlContent,"Bạn có chắc chắn muốn xóa ?","Xóa",JOptionPane.YES_NO_OPTION);
-//        if(i==JOptionPane.YES_OPTION)
-//        {
-//            lopDAO.XoaLop(ma);
-//            JOptionPane.showMessageDialog(pnlContent, "Xóa thành công");
-//            loadDSlop();
-//        }
-        
-    }//GEN-LAST:event_btnXoalopActionPerformed
-    
-    private void tblDSLopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSLopMouseClicked
-        DisEn(true);
-    }//GEN-LAST:event_tblDSLopMouseClicked
-//</editor-fold>
+    }    //</editor-fold>
     
         // </editor-fold>
     
@@ -964,8 +1024,133 @@ public final class MainForm extends javax.swing.JFrame {
             radioFemale.setSelected(true);
         }
         txtAddress.setText(tblStudent.getValueAt(row, 4).toString());
-        
+        btnAddStudent.setEnabled(false);
+        btnUpdateStudent.setEnabled(true);
+        btnDeleteStudent.setEnabled(true);
     }//GEN-LAST:event_tblStudentMouseClicked
+
+    private void tblClassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClassMouseClicked
+        int row = tblClass.getSelectedRow();
+        txtClassId.setText(tblClass.getValueAt(row, 0).toString());
+        txtClassName.setText(tblClass.getValueAt(row, 1).toString());
+        btnAddClass.setEnabled(false);
+        btnUpdateClass.setEnabled(true);
+        btnDeleteClass.setEnabled(true);
+    }//GEN-LAST:event_tblClassMouseClicked
+
+    private void tblSubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSubjectMouseClicked
+        int row = tblSubject.getSelectedRow();
+        txtSubjectId.setText(tblSubject.getValueAt(row, 0).toString());
+        txtSubjectName.setText(tblSubject.getValueAt(row, 1).toString());
+        btnAddSubject.setEnabled(false);
+        btnUpdateSubject.setEnabled(true);
+        btnDeleteSubject.setEnabled(true);
+    }//GEN-LAST:event_tblSubjectMouseClicked
+
+    private void btnAddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSubjectActionPerformed
+        Subject subject = new Subject();
+        subject.setName(txtSubjectName.getText());
+        try {
+            subjectController.addSubject(subject);
+            JOptionPane.showMessageDialog(null,"Thêm mới thành công");
+        } catch (Exception e) {
+            System.out.println("Add failed");
+            JOptionPane.showMessageDialog(null,"Thêm mới không thành công");
+        }
+        loadSubjectList();
+        loadSubjectList();
+    }//GEN-LAST:event_btnAddSubjectActionPerformed
+
+    private void btnUpdateSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSubjectActionPerformed
+        Subject subject = new Subject();
+        subject.setId(Integer.parseInt(txtSubjectId.getText()));
+        subject.setName(txtSubjectName.getText());
+        try {
+            subjectController.updateSubject(subject);
+            JOptionPane.showMessageDialog(null,"Sửa thành công");
+        } catch (Exception e) {
+            System.out.println("Update failed");
+            JOptionPane.showMessageDialog(null,"Sửa không thành công");
+        }
+        loadSubjectList();
+    }//GEN-LAST:event_btnUpdateSubjectActionPerformed
+
+    private void btnDeleteSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSubjectActionPerformed
+        if(subjectController.deleteSubject(Integer.parseInt(txtSubjectId.getText()))){
+            JOptionPane.showMessageDialog(null,"Xóa thành công");
+            ((DefaultTableModel)tblSubject.getModel()).removeRow(tblSubject.getSelectedRow());
+            tblSubject.clearSelection();
+            txtSubjectId.setText("");
+            txtSubjectName.setText("");
+            loadSubjectList();
+        } else {
+            System.out.println("Delete failed");
+            JOptionPane.showMessageDialog(null,"Xóa không thành công");
+        }
+    }//GEN-LAST:event_btnDeleteSubjectActionPerformed
+
+    private void btnClearSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearSubjectActionPerformed
+        txtSubjectId.setText("");
+        txtSubjectName.setText("");
+        btnAddSubject.setEnabled(true);
+        btnUpdateSubject.setEnabled(false);
+        btnDeleteSubject.setEnabled(false);
+    }//GEN-LAST:event_btnClearSubjectActionPerformed
+
+    private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
+        tblSubject.clearSelection();
+        loadSubjectList();
+    }//GEN-LAST:event_testActionPerformed
+
+    private void btnAddClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClassActionPerformed
+        Classes clazz = new Classes();
+        clazz.setName(txtClassName.getText());
+        try {
+            classController.addSubject(clazz);
+            JOptionPane.showMessageDialog(null,"Thêm mới thành công");
+        } catch (Exception e) {
+            System.out.println("Add failed");
+            JOptionPane.showMessageDialog(null,"Thêm mới không thành công");
+        }
+        loadClassList();
+        loadClassList();
+    }//GEN-LAST:event_btnAddClassActionPerformed
+
+    private void btnUpdateClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateClassActionPerformed
+        Classes clazz = new Classes();
+        clazz.setId(Integer.parseInt(txtClassId.getText()));
+        clazz.setName(txtClassName.getText());
+        try {
+            classController.updateSubject(clazz);
+            JOptionPane.showMessageDialog(null,"Sửa thành công");
+        } catch (Exception e) {
+            System.out.println("Update failed");
+            JOptionPane.showMessageDialog(null,"Sửa không thành công");
+        }
+        loadClassList();
+    }//GEN-LAST:event_btnUpdateClassActionPerformed
+
+    private void btnDeleteClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClassActionPerformed
+        if(classController.deleteSubject(Integer.parseInt(txtClassId.getText()))){
+            JOptionPane.showMessageDialog(null,"Xóa thành công");
+            ((DefaultTableModel)tblClass.getModel()).removeRow(tblClass.getSelectedRow());
+            tblSubject.clearSelection();
+            txtClassId.setText("");
+            txtClassName.setText("");
+            loadClassList();
+        } else {
+            System.out.println("Delete failed");
+            JOptionPane.showMessageDialog(null,"Xóa không thành công");
+        }
+    }//GEN-LAST:event_btnDeleteClassActionPerformed
+
+    private void btnClearClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearClassActionPerformed
+        txtClassId.setText("");
+        txtClassName.setText("");
+        btnAddClass.setEnabled(true);
+        btnUpdateClass.setEnabled(false);
+        btnDeleteClass.setEnabled(false);
+    }//GEN-LAST:event_btnClearClassActionPerformed
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -1004,21 +1189,22 @@ public final class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddClass;
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubject;
     private javax.swing.JButton btnChiTiet;
+    private javax.swing.JButton btnClearClass;
     private javax.swing.JButton btnClearStudent;
     private javax.swing.JButton btnClearSubject;
+    private javax.swing.JButton btnDeleteClass;
     private javax.swing.JButton btnDeleteStudent;
     private javax.swing.JButton btnDeleteSubject;
     private javax.swing.JButton btnSuadiem;
-    private javax.swing.JButton btnSualop;
     private javax.swing.JButton btnThemdiem;
-    private javax.swing.JButton btnThemlop;
+    private javax.swing.JButton btnUpdateClass;
     private javax.swing.JButton btnUpdateStudent;
     private javax.swing.JButton btnUpdateSubject;
     private javax.swing.JButton btnXoadiem;
-    private javax.swing.JButton btnXoalop;
     private javax.swing.ButtonGroup genderBtnGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1027,7 +1213,8 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1037,20 +1224,19 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lblwelcome;
     private javax.swing.JMenuItem mnDangXuat;
     private javax.swing.JMenuItem mnThoat;
     private javax.swing.JPanel pnlContent;
-    private javax.swing.JPanel pnlDSLop;
     private javax.swing.JPanel pnlDSSV1;
     private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlDiem;
@@ -1060,12 +1246,15 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSidebar;
     private javax.swing.JRadioButton radioFemale;
     private javax.swing.JRadioButton radioMale;
+    private javax.swing.JTable tblClass;
     private javax.swing.JTable tblDSDiem;
-    private javax.swing.JTable tblDSLop;
     private javax.swing.JTable tblStudent;
     private javax.swing.JTable tblSubject;
+    private javax.swing.JButton test;
     private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtBirthday;
+    private javax.swing.JTextField txtClassId;
+    private javax.swing.JTextField txtClassName;
     private javax.swing.JTextField txtStudentId;
     private javax.swing.JTextField txtStudentName;
     private javax.swing.JTextField txtSubjectId;

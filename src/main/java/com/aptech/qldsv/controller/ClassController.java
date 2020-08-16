@@ -20,4 +20,30 @@ public class ClassController {
     public List<Classes> getAllClass(){
         return classDAO.getAllClass();
     }
+    
+    public void addSubject(Classes clazz){
+        try {
+            classDAO.saveClass(clazz);
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+        }
+    }
+    
+    public void updateSubject(Classes clazz){
+        try {
+            classDAO.updateClass(clazz);
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+        }
+    }
+    
+    public boolean deleteSubject(int id){
+        try {
+            classDAO.deleteClass(id);
+            return true;
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+            return false;
+        }
+    }
 }

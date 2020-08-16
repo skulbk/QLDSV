@@ -39,4 +39,52 @@ public class ClassDAO {
         
        return lstClass;
     }
+    
+    public void saveClass(Classes clazz) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            session.save(clazz);
+            session.getTransaction().commit();
+            System.out.println("insert success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void updateClass(Classes clazz){
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Classes c = session.get(Classes.class, clazz.getId());
+            c.setName(clazz.getName());
+            session.saveOrUpdate(c);
+            session.getTransaction().commit();
+            System.out.println("update success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void deleteClass(int id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Classes clazz = session.load(Classes.class, id);
+            session.delete(clazz);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }

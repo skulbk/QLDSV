@@ -39,4 +39,52 @@ public class SubjectDAO {
         
        return lstSubjects;
     }
+    
+    public void saveSubject(Subject subject) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            session.save(subject);
+            session.getTransaction().commit();
+            System.out.println("insert success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void updateSubject(Subject subject){
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Subject s = session.get(Subject.class, subject.getId());
+            s.setName(subject.getName());
+            session.saveOrUpdate(s);
+            session.getTransaction().commit();
+            System.out.println("update success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void deleteSubject(int id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Subject subject = session.load(Subject.class, id);
+            session.delete(subject);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }
