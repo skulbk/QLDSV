@@ -21,4 +21,30 @@ public class StudentController {
         return studentDAO.getAllStudent();
     }
     
+    public void addStudent(Student student){
+        try {
+            studentDAO.saveStudent(student);
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+        }
+    }
+    
+    public void updateStudent(Student student){
+        try {
+            studentDAO.updateStudent(student);
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+        }
+    }
+    
+    public boolean deleteStudent(int id){
+        try {
+            studentDAO.deleteStudent(id);
+            return true;
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+            return false;
+        }
+    }
+    
 }

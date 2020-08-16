@@ -23,7 +23,7 @@ public class Student implements Serializable {
     
     @Id
     @Column(name = "id")
-    private String id;
+    private int id;
     @Column(name = "name")
     private String name;
     @Column(name = "birthday")
@@ -40,7 +40,7 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String id, String name, String birthday, Boolean gender, String address, Classes clazz) {
+    public Student(int id, String name, String birthday, Boolean gender, String address, Classes clazz) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -49,11 +49,11 @@ public class Student implements Serializable {
         this.clazz = clazz;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

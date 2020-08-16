@@ -58,7 +58,6 @@ public class StudentDAO {
             session.getTransaction().rollback();
             e.printStackTrace();
         } finally {
-            session.flush();
             session.close();
         }
     }
@@ -106,6 +105,26 @@ public class StudentDAO {
             e.printStackTrace();
         } finally {
             session.flush();
+            session.close();
+        }
+    }
+    
+    public void updateStudent(Student student){
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Student s = session.get(Student.class, student.getId());
+            s.setName(student.getName());
+            s.setGender(student.getGender());
+            s.setBirthday(student.getBirthday());
+            s.setAddress(student.getAddress());
+            session.saveOrUpdate(s);
+            session.getTransaction().commit();
+            System.out.println("update success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
             session.close();
         }
     }

@@ -87,4 +87,19 @@ public class ClassDAO {
             session.close();
         }
     }
+    
+    public Classes getClassById(int id){
+        Session session = factory.openSession();
+        Classes c = null;
+        try {
+            c = (Classes) session.get(Classes.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return c;
+    }
 }

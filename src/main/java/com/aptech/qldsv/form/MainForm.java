@@ -15,7 +15,9 @@ import com.aptech.qldsv.entity.Subject;
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -36,7 +38,8 @@ public final class MainForm extends javax.swing.JFrame {
     SubjectController subjectController = new SubjectController();
     StudentController studentController = new StudentController();
 //    DiemDAO diemDAO = new DiemDAO();
-//    LoaiDiemDAO ldDAO = new LoaiDiemDAO();
+    List classId = new ArrayList();
+    Map mapClass = new HashMap<>();
     /**
      * Creates new form MainForm
      */
@@ -94,7 +97,6 @@ public final class MainForm extends javax.swing.JFrame {
         btnDeleteSubject = new javax.swing.JButton();
         btnClearSubject = new javax.swing.JButton();
         txtSubjectId = new javax.swing.JTextField();
-        test = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblSubject = new javax.swing.JTable();
         pnlSV = new javax.swing.JPanel();
@@ -115,6 +117,9 @@ public final class MainForm extends javax.swing.JFrame {
         txtStudentId = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAddress = new javax.swing.JTextArea();
+        test1 = new javax.swing.JButton();
+        cbClass = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblStudent = new javax.swing.JTable();
         pnlDiem = new javax.swing.JPanel();
@@ -292,14 +297,14 @@ public final class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(txtClassName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(213, 213, 213)
+                .addGap(276, 276, 276)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddClass)
                     .addComponent(btnUpdateClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnClearClass)
-                .addGap(166, 166, 166))
+                .addGap(103, 103, 103))
         );
 
         tblClass.setModel(new javax.swing.table.DefaultTableModel(
@@ -379,13 +384,6 @@ public final class MainForm extends javax.swing.JFrame {
 
         txtSubjectId.setEnabled(false);
 
-        test.setText("test");
-        test.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -406,8 +404,7 @@ public final class MainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(test, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnClearSubject))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(btnUpdateSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -426,16 +423,14 @@ public final class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtSubjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(213, 213, 213)
+                .addGap(275, 275, 275)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddSubject)
                     .addComponent(btnUpdateSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteSubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClearSubject)
-                    .addComponent(test))
-                .addGap(166, 166, 166))
+                .addComponent(btnClearSubject)
+                .addGap(104, 104, 104))
         );
 
         tblSubject.setModel(new javax.swing.table.DefaultTableModel(
@@ -494,22 +489,51 @@ public final class MainForm extends javax.swing.JFrame {
         radioFemale.setText("Nữ");
 
         btnAddStudent.setText("Thêm");
+        btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddStudentActionPerformed(evt);
+            }
+        });
 
         btnUpdateStudent.setText("Sửa");
         btnUpdateStudent.setEnabled(false);
         btnUpdateStudent.setPreferredSize(new java.awt.Dimension(73, 23));
+        btnUpdateStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateStudentActionPerformed(evt);
+            }
+        });
 
         btnDeleteStudent.setText("Xóa");
         btnDeleteStudent.setEnabled(false);
         btnDeleteStudent.setPreferredSize(new java.awt.Dimension(73, 23));
+        btnDeleteStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteStudentActionPerformed(evt);
+            }
+        });
 
         btnClearStudent.setText("Nhập lại");
+        btnClearStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearStudentActionPerformed(evt);
+            }
+        });
 
         txtStudentId.setEnabled(false);
 
         txtAddress.setColumns(20);
         txtAddress.setRows(5);
         jScrollPane3.setViewportView(txtAddress);
+
+        test1.setText("test");
+        test1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                test1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Lớp");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -524,7 +548,8 @@ public final class MainForm extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
@@ -539,9 +564,13 @@ public final class MainForm extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(79, 79, 79)
+                        .addComponent(test1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnClearStudent))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -577,12 +606,18 @@ public final class MainForm extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddStudent)
                     .addComponent(btnUpdateStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClearStudent)
-                .addGap(166, 166, 166))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClearStudent)
+                    .addComponent(test1))
+                .addGap(102, 102, 102))
         );
 
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
@@ -748,6 +783,16 @@ public final class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    private void loadcbClass(){
+        List<Classes> listClass = classController.getAllClass();
+        for (int i = 0; i < listClass.size(); i++) {
+            Classes c = listClass.get(i);
+            classId.add(i, c.getId());
+            cbClass.addItem(c.getName());
+            mapClass.put(c.getId(), c.getName());
+        }
+    }
+    
     public void welcome(String ten){
         lblwelcome.setText("Welcome "+ ten);
     }
@@ -757,6 +802,7 @@ public final class MainForm extends javax.swing.JFrame {
         loadSubjectList();
         loadDSDiem();
         loadStudentList();
+        loadcbClass();
         DisEn(false);
     }
     public void loadClassList(){
@@ -1023,6 +1069,12 @@ public final class MainForm extends javax.swing.JFrame {
         } else if(gender.equals("Nữ")){
             radioFemale.setSelected(true);
         }
+        String className =  tblStudent.getValueAt(row, 5).toString();
+        for(int i = 0;i<cbClass.getMaximumRowCount();i++){
+            if(cbClass.getItemAt(i).equals(className)){
+                cbClass.setSelectedIndex(i);
+            }
+        }
         txtAddress.setText(tblStudent.getValueAt(row, 4).toString());
         btnAddStudent.setEnabled(false);
         btnUpdateStudent.setEnabled(true);
@@ -1097,16 +1149,11 @@ public final class MainForm extends javax.swing.JFrame {
         btnDeleteSubject.setEnabled(false);
     }//GEN-LAST:event_btnClearSubjectActionPerformed
 
-    private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
-        tblSubject.clearSelection();
-        loadSubjectList();
-    }//GEN-LAST:event_testActionPerformed
-
     private void btnAddClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClassActionPerformed
         Classes clazz = new Classes();
         clazz.setName(txtClassName.getText());
         try {
-            classController.addSubject(clazz);
+            classController.addClass(clazz);
             JOptionPane.showMessageDialog(null,"Thêm mới thành công");
         } catch (Exception e) {
             System.out.println("Add failed");
@@ -1121,7 +1168,7 @@ public final class MainForm extends javax.swing.JFrame {
         clazz.setId(Integer.parseInt(txtClassId.getText()));
         clazz.setName(txtClassName.getText());
         try {
-            classController.updateSubject(clazz);
+            classController.updateClass(clazz);
             JOptionPane.showMessageDialog(null,"Sửa thành công");
         } catch (Exception e) {
             System.out.println("Update failed");
@@ -1131,10 +1178,10 @@ public final class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateClassActionPerformed
 
     private void btnDeleteClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClassActionPerformed
-        if(classController.deleteSubject(Integer.parseInt(txtClassId.getText()))){
+        if(classController.deleteClass(Integer.parseInt(txtClassId.getText()))){
             JOptionPane.showMessageDialog(null,"Xóa thành công");
             ((DefaultTableModel)tblClass.getModel()).removeRow(tblClass.getSelectedRow());
-            tblSubject.clearSelection();
+            tblClass.clearSelection();
             txtClassId.setText("");
             txtClassName.setText("");
             loadClassList();
@@ -1151,6 +1198,81 @@ public final class MainForm extends javax.swing.JFrame {
         btnUpdateClass.setEnabled(false);
         btnDeleteClass.setEnabled(false);
     }//GEN-LAST:event_btnClearClassActionPerformed
+
+    private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
+        Student student = new Student();
+        student.setName(txtStudentName.getText());
+        if(radioMale.isSelected()){
+            student.setGender(false);
+        } else if(radioFemale.isSelected()) {
+            student.setGender(true);
+        }
+        student.setBirthday(txtBirthday.getText());
+        student.setAddress(txtAddress.getText());
+        student.setClazz(classController.getClassById((int) classId.get(cbClass.getSelectedIndex())));
+        try {
+            studentController.addStudent(student);
+            JOptionPane.showMessageDialog(null,"Thêm mới thành công");
+        } catch (Exception e) {
+            System.out.println("Add failed");
+            JOptionPane.showMessageDialog(null,"Thêm mới không thành công");
+        }
+        loadStudentList();
+        loadStudentList();
+    }//GEN-LAST:event_btnAddStudentActionPerformed
+
+    private void btnUpdateStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStudentActionPerformed
+        Student student = new Student();
+        student.setId(Integer.parseInt(txtStudentId.getText()));
+        student.setName(txtStudentName.getText());
+        if(radioMale.isSelected()){
+            student.setGender(false);
+        } else if(radioFemale.isSelected()) {
+            student.setGender(true);
+        }
+        student.setBirthday(txtBirthday.getText());
+        student.setAddress(txtAddress.getText());
+        try {
+            studentController.updateStudent(student);
+            JOptionPane.showMessageDialog(null,"Sửa thành công");
+        } catch (Exception e) {
+            System.out.println("Update failed");
+            JOptionPane.showMessageDialog(null,"Sửa không thành công");
+        }
+        loadStudentList();
+    }//GEN-LAST:event_btnUpdateStudentActionPerformed
+
+    private void btnDeleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteStudentActionPerformed
+        if(studentController.deleteStudent(Integer.parseInt(txtStudentId.getText()))){
+            JOptionPane.showMessageDialog(null,"Xóa thành công");
+            ((DefaultTableModel)tblStudent.getModel()).removeRow(tblStudent.getSelectedRow());
+            tblStudent.clearSelection();
+            txtStudentId.setText("");
+            txtStudentName.setText("");
+            txtAddress.setText("");
+            txtBirthday.setText("");
+            genderBtnGroup.clearSelection();
+            loadStudentList();
+        } else {
+            System.out.println("Delete failed");
+            JOptionPane.showMessageDialog(null,"Xóa không thành công");
+        }
+    }//GEN-LAST:event_btnDeleteStudentActionPerformed
+
+    private void btnClearStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearStudentActionPerformed
+        txtStudentId.setText("");
+        txtStudentName.setText("");
+        txtAddress.setText("");
+        txtBirthday.setText("");
+        genderBtnGroup.clearSelection();
+        btnAddStudent.setEnabled(true);
+        btnUpdateStudent.setEnabled(false);
+        btnDeleteStudent.setEnabled(false);
+    }//GEN-LAST:event_btnClearStudentActionPerformed
+
+    private void test1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test1ActionPerformed
+        System.out.println(cbClass.getSelectedIndex());
+    }//GEN-LAST:event_test1ActionPerformed
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -1205,6 +1327,7 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateStudent;
     private javax.swing.JButton btnUpdateSubject;
     private javax.swing.JButton btnXoadiem;
+    private javax.swing.JComboBox<String> cbClass;
     private javax.swing.ButtonGroup genderBtnGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1215,6 +1338,7 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1250,7 +1374,7 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JTable tblDSDiem;
     private javax.swing.JTable tblStudent;
     private javax.swing.JTable tblSubject;
-    private javax.swing.JButton test;
+    private javax.swing.JButton test1;
     private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtBirthday;
     private javax.swing.JTextField txtClassId;

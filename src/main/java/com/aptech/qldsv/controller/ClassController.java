@@ -21,7 +21,7 @@ public class ClassController {
         return classDAO.getAllClass();
     }
     
-    public void addSubject(Classes clazz){
+    public void addClass(Classes clazz){
         try {
             classDAO.saveClass(clazz);
         } catch (Exception e) {
@@ -29,7 +29,7 @@ public class ClassController {
         }
     }
     
-    public void updateSubject(Classes clazz){
+    public void updateClass(Classes clazz){
         try {
             classDAO.updateClass(clazz);
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class ClassController {
         }
     }
     
-    public boolean deleteSubject(int id){
+    public boolean deleteClass(int id){
         try {
             classDAO.deleteClass(id);
             return true;
@@ -45,5 +45,9 @@ public class ClassController {
             System.err.println("Failed:"+e.getMessage());
             return false;
         }
+    }
+    
+    public Classes getClassById(int id){
+        return classDAO.getClassById(id);
     }
 }
