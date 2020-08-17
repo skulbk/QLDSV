@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 10, 2020 lúc 03:20 PM
+-- Thời gian đã tạo: Th8 17, 2020 lúc 03:05 AM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.2
 
@@ -51,25 +51,11 @@ INSERT INTO `class` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `score` (
-  `id_student` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `id_student` int(11) NOT NULL,
   `id_subject` int(11) NOT NULL,
   `id_type` int(11) NOT NULL,
-  `score` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `score`
---
-
-INSERT INTO `score` (`id_student`, `id_subject`, `id_type`, `score`) VALUES
-('C1605G', 4, 1, 4),
-('C1608G3333', 5, 3, 8),
-('C1609L3858', 4, 1, 6),
-('C1609L3858', 4, 2, 4),
-('C1609L3858', 4, 3, 7),
-('C1609L3858', 5, 1, 4),
-('C1609L3858', 5, 2, 4),
-('C1609L3858', 5, 3, 6);
+  `score` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
 
@@ -98,7 +84,7 @@ INSERT INTO `score_type` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `student` (
-  `id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `gender` tinyint(1) DEFAULT NULL,
@@ -111,11 +97,12 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `name`, `birthday`, `gender`, `address`, `id_class`) VALUES
-('C1605G', 'Mai Danh Hiệp', '1991-05-05', 1, 'Hà Đông', 1),
-('C1608G3333', 'Nguyễn Trung Hiếu', '1995-08-10', 0, 'Hà Nội', 4),
-('C1609G1234', 'Nguyễn Văn A', '1995-12-12', 0, 'Hà Nội', 1),
-('C1609L3858', 'Đỗ Mạnh Toàn', '1995-10-15', 0, 'Hà Nội', 1),
-('C1609L3874', 'Nguyễn Tuấn Hiệp', '1994-09-30', 0, 'Hà Nội', 1);
+(1, 'Mai Danh Hiệp', '1991-05-05', 1, 'Hà Đông', 1),
+(2, 'Nguyễn Trung Hiếu', '1995-08-10', 0, 'Hà Nội', 4),
+(3, 'Nguyễn Văn A', '1995-12-12', 0, 'Hà Nội', 1),
+(4, 'Đỗ Mạnh Toàn', '1995-10-15', 0, 'Hà Nội', 1),
+(5, 'Nguyễn Tuấn Hiệp', '1994-09-30', 0, 'Hà Nội', 1),
+(7, 'aaaaaaa', '1995-08-12', 0, 'aa12', 5);
 
 -- --------------------------------------------------------
 
@@ -134,7 +121,11 @@ CREATE TABLE `subject` (
 
 INSERT INTO `subject` (`id`, `name`) VALUES
 (4, 'PHP'),
-(5, 'JAVA');
+(5, 'JAVA'),
+(6, 'C#'),
+(8, 'Android'),
+(9, 'iOS'),
+(21, 'Spring');
 
 -- --------------------------------------------------------
 
@@ -143,7 +134,7 @@ INSERT INTO `subject` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -152,7 +143,7 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1, 'admin', '1234');
 
 --
@@ -169,9 +160,9 @@ ALTER TABLE `class`
 -- Chỉ mục cho bảng `score`
 --
 ALTER TABLE `score`
-  ADD PRIMARY KEY (`id_student`,`id_subject`,`id_type`),
-  ADD KEY `FK_Loai` (`id_type`),
-  ADD KEY `FK_MH` (`id_subject`);
+  ADD PRIMARY KEY (`id_student`,`id_subject`,`id_type`) USING BTREE,
+  ADD KEY `id_subject` (`id_subject`),
+  ADD KEY `id_type` (`id_type`);
 
 --
 -- Chỉ mục cho bảng `score_type`
@@ -196,7 +187,7 @@ ALTER TABLE `subject`
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -215,16 +206,22 @@ ALTER TABLE `score_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT cho bảng `student`
+--
+ALTER TABLE `student`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT cho bảng `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -234,9 +231,9 @@ ALTER TABLE `users`
 -- Các ràng buộc cho bảng `score`
 --
 ALTER TABLE `score`
-  ADD CONSTRAINT `FK_SV` FOREIGN KEY (`id_student`) REFERENCES `student` (`id`),
-  ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subject` (`id`),
-  ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`id_type`) REFERENCES `score_type` (`id`);
+  ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`id_student`) REFERENCES `student` (`id`),
+  ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`id_subject`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `score_ibfk_3` FOREIGN KEY (`id_type`) REFERENCES `score_type` (`id`);
 
 --
 -- Các ràng buộc cho bảng `student`
