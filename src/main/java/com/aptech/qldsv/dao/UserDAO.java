@@ -7,6 +7,8 @@ package com.aptech.qldsv.dao;
 
 import com.aptech.qldsv.entity.User;
 import com.aptech.qldsv.utils.HibernateUtils;
+
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -38,5 +40,60 @@ public class UserDAO {
         }
         
        return lstUser;
+    }
+
+    public User findUserById(int id) {
+        Session session = factory.openSession();
+        User user = session.load(User.class, id);
+        System.out.println(user);
+        session.close();
+        return user;
+    }
+
+    public void saveUser(User user) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+            System.out.println("insert success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+    public void updatePassword(int id, String password) {
+        Session session = factory.openSession();
+        try {
+            String sql = "UPDATE User u SET u.password = :newPassword WHERE u.id = :id";
+            session.createQuery(sql).setParameter("newPassword", password).setParameter("id", id).executeUpdate();
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+    public void deleteUser(int id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            User user = session.load(User.class, id);
+            session.delete(user);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
 }

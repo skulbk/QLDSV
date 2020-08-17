@@ -1,0 +1,8 @@
+
+Fsquid:S1148>"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ËÖÖ¾.
+Fsquid:S1148L"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï…¾.
+V
+squid:S1060"9Replace this use of System.out or System.err by a logger.(Ø¼¢ƒ8©èÂ¾.
+V
+squid:S106;"9Replace this use of System.out or System.err by a logger.(“êèÏ8éÎÓ¾.
+_squid:UselessImportCheck"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ8©èÂ¾.

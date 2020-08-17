@@ -7,37 +7,93 @@ package com.aptech.qldsv.dao;
 
 import com.aptech.qldsv.entity.Classes;
 import com.aptech.qldsv.utils.HibernateUtils;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
  * @author skulb
  */
 public class ClassDAO {
-    
+
     private SessionFactory factory = HibernateUtils.getSessionFactory();
-    
-    public List<Classes> getAllClass( ){
+
+    public List<Classes> getAllClass() {
         Session session = factory.openSession();
         Transaction tx = null;
         List<Classes> lstClass = new ArrayList<>();
-      
+
         try {
             tx = session.beginTransaction();
-            lstClass = session.createQuery("FROM Classes").list(); 
+            lstClass = session.createQuery("FROM Classes").list();
             tx.commit();
         } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
+            if (tx != null) tx.rollback();
         } finally {
-            session.close(); 
+            session.close();
         }
-        
-       return lstClass;
+
+        return lstClass;
+    }
+
+    public void saveClass(Classes classes) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            session.save(classes);
+            session.getTransaction().commit();
+            System.out.println("Class created!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+    public void updateClassName(int id, String name) {
+        Session session = factory.openSession();
+        try {
+            String sql = "UPDATE Classes u SET u.name = :newName WHERE u.id = :id";
+            session.createQuery(sql).setParameter("newName", name).setParameter("id", id).executeUpdate();
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+    public void deleteClass(int id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Classes classes = session.load(Classes.class, id);
+            session.delete(classes);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+    public Classes findClassById(int id) {
+        Session session = factory.openSession();
+        Classes classes = session.load(Classes.class, id);
+        System.out.println(classes);
+        session.close();
+        return classes;
     }
     
     public void saveClass(Classes clazz) {
