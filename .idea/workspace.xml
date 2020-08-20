@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17c7cfca-794d-47b5-aebb-4d8b4ebeeca7" name="Default Changelist" comment="">
+    <list default="true" id="abd9cecd-0d02-41ab-93d0-4f0368d56dbe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fdfa43c3af860f3c70ffda9b06aa4f94391cac8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fdfa43c3af860f3c70ffda9b06aa4f94391cac8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a4196411af4d18fd2ba17efac4f794abdd5933a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a4196411af4d18fd2ba17efac4f794abdd5933a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/658430a5233c2a99a187e6510fddd4eeedd251e7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/658430a5233c2a99a187e6510fddd4eeedd251e7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd8ecad70f7e2e33846520668a466ed5b705b35d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/0/d00565a4da6a3264993f68e3ce65f3999da51042" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/0/d00565a4da6a3264993f68e3ce65f3999da51042" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f17675945148e362787c3facbb693275f0c79537" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f17675945148e362787c3facbb693275f0c79537" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/3/f3b24482b95c73d5cd7395c20bae3bdb37315e49" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/ClassDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/ClassDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/SubjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/SubjectDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aptech/qldsv/dao/UserDAO.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +56,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17c7cfca-794d-47b5-aebb-4d8b4ebeeca7" name="Default Changelist" comment="" />
+      <changelist id="abd9cecd-0d02-41ab-93d0-4f0368d56dbe" name="Default Changelist" comment="" />
       <created>1597115397167</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -59,6 +65,8 @@
       <workItem from="1597198315968" duration="4047000" />
       <workItem from="1597284509660" duration="3720000" />
       <workItem from="1597386837535" duration="3152000" />
+      <workItem from="1597827414855" duration="652000" />
+      <workItem from="1597912506863" duration="3475000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,7 @@
  */
 package com.aptech.qldsv.dao;
 
+import com.aptech.qldsv.entity.Student;
 import com.aptech.qldsv.entity.User;
 import com.aptech.qldsv.utils.HibernateUtils;
 
@@ -66,11 +67,15 @@ public class UserDAO {
         }
     }
 
-    public void updatePassword(int id, String password) {
+    public void updatePassword(User user, String password) {
         Session session = factory.openSession();
         try {
-            String sql = "UPDATE User u SET u.password = :newPassword WHERE u.id = :id";
-            session.createQuery(sql).setParameter("newPassword", password).setParameter("id", id).executeUpdate();
+            session.beginTransaction();
+            User u = session.get(User.class, user.getId());
+            u.setPassword(password);
+            session.saveOrUpdate(u);
+            session.getTransaction().commit();
+            System.out.println("Update password success!");
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             e.printStackTrace();

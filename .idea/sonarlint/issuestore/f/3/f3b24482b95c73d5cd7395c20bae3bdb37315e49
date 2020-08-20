@@ -1,24 +1,0 @@
-
-usquid:S00116"VRename this field "sá»­aButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á­ìå8äÂ¿è½.
-zsquid:S00116"VRename this field "thÃªmButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥–‰†ÿÿÿÿÿ8íÙ¾è½.
-Osquid:S1068"1Remove this unused "birthdayLabel" private field.(¬ÇÖ8êŸè½.
-Psquid:S1135"2Complete the task associated to this TODO comment.(¡ç‚Ï8İôç½.
-hsquid:UnusedPrivateMethod"7Remove this unused private "createUIComponents" method.(Á›°çıÿÿÿÿ8İôç½.
-Psquid:S1068"2Remove this unused "studentNameTxt" private field.(úÑ÷œ8«Ğˆè½.
-Lsquid:S1068")Remove this unused "nuRdo" private field.(òó‹æşÿÿÿÿ8Ÿæè½.
-Msquid:S1068
-"/Remove this unused "birthdayTxt" private field.(öØ°¢8œ½’è½.
-xsquid:S00116	"YRename this field "StudentIdLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬¼È©8ÿ¯‰è½.
-Ssquid:S1068"0Remove this unused "StudentIdTxt" private field.(×—æÿÿÿÿÿ8„ø‰è½.
-ysquid:S00116"URename this field "xÃ³aButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…­Ô¡ùÿÿÿÿ8€ß¿è½.
-Msquid:S1068"*Remove this unused "namRdo" private field.(ôŸÔ—ûÿÿÿÿ8²¢œè½.
-Rsquid:S1068"/Remove this unused "genderLabel" private field.(¼œ”¹ıÿÿÿÿ8˜‡—è½.
-Ssquid:S1068"0Remove this unused "addressLabel" private field.(ÿ¨­‡ùÿÿÿÿ8ëµ¬è½.
-Rsquid:S1068"/Remove this unused "thÃªmButton" private field.(¥–‰†ÿÿÿÿÿ8íÙ¾è½.
-Qsquid:S1068".Remove this unused "xÃ³aButton" private field.(…­Ô¡ùÿÿÿÿ8€ß¿è½.
-Psquid:S1068	"2Remove this unused "StudentIdLabel" private field.(¬¼È©8ÿ¯‰è½.
-{squid:S00116"WRename this field "StudentIdTxt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×—æÿÿÿÿÿ8„ø‰è½.
-Rsquid:S1068"4Remove this unused "studentNameLabel" private field.(¢“•8šˆè½.
-Msquid:S1068"/Remove this unused "sá»­aButton" private field.(á­ìå8äÂ¿è½.
-Ksquid:S1068".Remove this unused "addressTxt" private field.(°§®8ü¥²è½.
-Msquid:S1068"/Remove this unused "resetButton" private field.(ÿ‘à©8èšÁè½.

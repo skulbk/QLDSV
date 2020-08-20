@@ -11,10 +11,12 @@ import com.aptech.qldsv.utils.HibernateUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.w3c.dom.ls.LSOutput;
 
 /**
  * @author skulb
@@ -63,20 +65,6 @@ public class StudentDAO {
         }
     }
 
-    public void updateName(int id, String name) {
-        Session session = factory.openSession();
-        try {
-            String sql = "UPDATE Student u SET u.name = :newName WHERE u.id = :id";
-            session.createQuery(sql).setParameter("newName", name).setParameter("id", id).executeUpdate();
-        } catch (RuntimeException e) {
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
-        }
-    }
-
     public void deleteStudent(int id) {
         Session session = factory.openSession();
         try {
@@ -94,16 +82,18 @@ public class StudentDAO {
         }
     }
 
-    public void searchByName(String name) {
+    public List<Student> searchByName(String name) {
         Session session = factory.openSession();
         try {
-            List<Student> list = session.createQuery("FROM Student WHERE name LIKE :name")
+            List<Student> list = session.createQuery("SELECT '*' FROM Student WHERE name LIKE :name")
                     .setParameter("name", "%" + name + "%").list();
             for (Student student : list) {
                 System.out.println(student);
             }
+            return list;
         } catch (RuntimeException e) {
             e.printStackTrace();
+            return null;
         } finally {
             session.flush();
             session.close();

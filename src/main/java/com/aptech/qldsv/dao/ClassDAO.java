@@ -41,44 +41,15 @@ public class ClassDAO {
         return lstClass;
     }
 
-    public void saveClass(Classes classes) {
+    public void updateClassName(Classes classes, String name) {
         Session session = factory.openSession();
         try {
             session.beginTransaction();
-            session.save(classes);
+            Classes c = session.get(Classes.class, classes.getId());
+            c.setName(name);
+            session.saveOrUpdate(c);
             session.getTransaction().commit();
-            System.out.println("Class created!");
-        } catch (RuntimeException e) {
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
-        }
-    }
-
-    public void updateClassName(int id, String name) {
-        Session session = factory.openSession();
-        try {
-            String sql = "UPDATE Classes u SET u.name = :newName WHERE u.id = :id";
-            session.createQuery(sql).setParameter("newName", name).setParameter("id", id).executeUpdate();
-        } catch (RuntimeException e) {
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
-        }
-    }
-
-    public void deleteClass(int id) {
-        Session session = factory.openSession();
-        try {
-            session.beginTransaction();
-            Classes classes = session.load(Classes.class, id);
-            session.delete(classes);
-            session.getTransaction().commit();
-            System.out.println("delete success!");
+            System.out.println("Update name success!");
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             e.printStackTrace();

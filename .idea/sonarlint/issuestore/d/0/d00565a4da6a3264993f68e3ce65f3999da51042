@@ -1,9 +1,18 @@
 
-Fsquid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 Îß¾.
 [
-squid:S1062"9Replace this use of System.out or System.err by a logger.(—–ïùÿÿÿÿ8ßÈ‘ß¾.
-Fsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒ“ß¾.
+squid:S1062"9Replace this use of System.out or System.err by a logger.(—–ïùÿÿÿÿ8¨şæÙ¿.
+Fsquid:S1148|"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ù«šÕ¿.
 U
-squid:S106]"9Replace this use of System.out or System.err by a logger.(Á–‹8ïä¨ß¾.
+squid:S106]"9Replace this use of System.out or System.err by a logger.(Á–‹8¨şæÙ¿.
+Fsquid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¨şæÙ¿.
+\
+squid:S106‰"9Replace this use of System.out or System.err by a logger.(æÎÇıÿÿÿÿ8Ù«šÕ¿.
+Fsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¨şæÙ¿.
+V
+squid:S106h"9Replace this use of System.out or System.err by a logger.(“êèÏ8Ù«šÕ¿.
+V
+squid:S106y"9Replace this use of System.out or System.err by a logger.(Ã¥¦Ş8Ù«šÕ¿.
+Fsquid:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ù«šÕ¿.
+Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ù«šÕ¿.
 [
-squid:S106Q"9Replace this use of System.out or System.err by a logger.(æÎÇıÿÿÿÿ8›¤¤ß¾.
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(æÎÇıÿÿÿÿ8¨şæÙ¿.
