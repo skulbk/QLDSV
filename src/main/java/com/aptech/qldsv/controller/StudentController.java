@@ -47,4 +47,7 @@ public class StudentController {
         }
     }
     
+    public List<Student> getStudentByClass(int id){
+        return studentDAO.getStudentByClass(id);
+    }
 }

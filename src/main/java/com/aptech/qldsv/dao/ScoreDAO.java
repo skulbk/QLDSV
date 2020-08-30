@@ -39,4 +39,23 @@ public class ScoreDAO {
         
        return lstScore;
     }
+    
+    public List<Score> getByStudent(int id) {
+        Session session = factory.openSession();
+        try {
+            List<Score> list = session.createQuery("FROM Score WHERE id_student = :id")
+                    .setParameter("id",id).list();
+            for (Score score : list) {
+                System.out.println(score);
+            }
+            return list;
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+    
+    
 }

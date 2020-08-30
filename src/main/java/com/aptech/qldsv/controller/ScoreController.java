@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.aptech.qldsv.form;
+package com.aptech.qldsv.controller;
 
 import com.aptech.qldsv.dao.ScoreDAO;
 import com.aptech.qldsv.dao.ScoreTypeDAO;
@@ -18,22 +18,16 @@ import java.util.Map;
 
 /**
  *
- * @author Administrator
+ * @author skulb
  */
-public class test {
+public class ScoreController {
     
-    private static ScoreDAO scoreDAO = new ScoreDAO();
-    private static ScoreTypeDAO typeDAO =  new ScoreTypeDAO();
-    private static SubjectDAO subDAO = new SubjectDAO();
-    private static Map<Integer, String> map = new HashMap<>();
+    private ScoreDAO scoreDAO = new ScoreDAO();
+    private ScoreTypeDAO typeDAO =  new ScoreTypeDAO();
+    private SubjectDAO subDAO = new SubjectDAO();
+    private Map<Integer, String> map = new HashMap<>();
     
-    public static void main(String[] args) {
-        
-        getScoreByStudent(4);
-        
-    }
-    
-    public static void getScoreByStudent(int id){
+    public List<StudentScoreDTO> getScoreByStudent(int id){
         List<Score> lstScore = scoreDAO.getByStudent(id);
         List<StudentScoreDTO> list = new ArrayList<>();
         for(Score score : lstScore){
@@ -69,6 +63,11 @@ public class test {
                 list.add(s);
             }
         }
-        System.out.println(list);
+        map.clear();
+        return list;
+    }
+    
+    public List<Score> getScoreByStudent2(int id){
+        return scoreDAO.getByStudent(id);
     }
 }

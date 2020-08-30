@@ -6,10 +6,14 @@
 package com.aptech.qldsv.form;
 
 import com.aptech.qldsv.controller.ClassController;
+import com.aptech.qldsv.controller.ScoreController;
+import com.aptech.qldsv.controller.ScoreTypeController;
 import com.aptech.qldsv.controller.StudentController;
 import com.aptech.qldsv.controller.SubjectController;
 import com.aptech.qldsv.dao.SubjectDAO;
 import com.aptech.qldsv.entity.Classes;
+import com.aptech.qldsv.entity.Score;
+import com.aptech.qldsv.entity.ScoreType;
 import com.aptech.qldsv.entity.Student;
 import com.aptech.qldsv.entity.Subject;
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
@@ -37,9 +41,14 @@ public final class MainForm extends javax.swing.JFrame {
     ClassController classController = new ClassController();
     SubjectController subjectController = new SubjectController();
     StudentController studentController = new StudentController();
-//    DiemDAO diemDAO = new DiemDAO();
+    ScoreController scoreController = new ScoreController();
+    ScoreTypeController typeController = new ScoreTypeController();
+    
     List classId = new ArrayList();
     Map mapClass = new HashMap<>();
+    Map<Integer,String> mapSubject = new HashMap<>();
+    Map<Integer,String> mapType = new HashMap<>();
+    
     /**
      * Creates new form MainForm
      */
@@ -52,7 +61,7 @@ public final class MainForm extends javax.swing.JFrame {
         }
         genderBtnGroup.add(radioMale);
         genderBtnGroup.add(radioFemale);
-        reload();
+        load();
         
     }
 
@@ -117,21 +126,21 @@ public final class MainForm extends javax.swing.JFrame {
         txtStudentId = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAddress = new javax.swing.JTextArea();
-        test1 = new javax.swing.JButton();
+        btnStudentScore = new javax.swing.JButton();
         cbClass = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblStudent = new javax.swing.JTable();
         pnlDiem = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblClaScore = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        btnThemdiem = new javax.swing.JButton();
-        btnSuadiem = new javax.swing.JButton();
-        btnXoadiem = new javax.swing.JButton();
-        btnChiTiet = new javax.swing.JButton();
-        pnlDSSV1 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblDSDiem = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblStuScore = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tblScore = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnDangXuat = new javax.swing.JMenuItem();
@@ -526,10 +535,11 @@ public final class MainForm extends javax.swing.JFrame {
         txtAddress.setRows(5);
         jScrollPane3.setViewportView(txtAddress);
 
-        test1.setText("test");
-        test1.addActionListener(new java.awt.event.ActionListener() {
+        btnStudentScore.setText("Điểm");
+        btnStudentScore.setEnabled(false);
+        btnStudentScore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                test1ActionPerformed(evt);
+                btnStudentScoreActionPerformed(evt);
             }
         });
 
@@ -569,7 +579,7 @@ public final class MainForm extends javax.swing.JFrame {
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(test1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnStudentScore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnClearStudent))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
@@ -616,7 +626,7 @@ public final class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClearStudent)
-                    .addComponent(test1))
+                    .addComponent(btnStudentScore))
                 .addGap(102, 102, 102))
         );
 
@@ -658,78 +668,10 @@ public final class MainForm extends javax.swing.JFrame {
         pnlContent.add(pnlSV, "cardSV");
 
         pnlDiem.setPreferredSize(new java.awt.Dimension(85, 23));
-        pnlDiem.setLayout(new java.awt.BorderLayout());
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel5.setText("Danh sách điểm");
+        jLabel3.setText("Môn");
 
-        btnThemdiem.setText("Thêm");
-        btnThemdiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemdiemActionPerformed(evt);
-            }
-        });
-
-        btnSuadiem.setText("Sửa");
-        btnSuadiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuadiemActionPerformed(evt);
-            }
-        });
-
-        btnXoadiem.setText("Xóa");
-        btnXoadiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoadiemActionPerformed(evt);
-            }
-        });
-
-        btnChiTiet.setText("Chi tiết");
-        btnChiTiet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChiTietActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnThemdiem, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSuadiem, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnXoadiem, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(239, 239, 239))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThemdiem)
-                    .addComponent(btnSuadiem)
-                    .addComponent(btnXoadiem)
-                    .addComponent(btnChiTiet))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        pnlDiem.add(jPanel4, java.awt.BorderLayout.PAGE_START);
-
-        pnlDSSV1.setLayout(new javax.swing.BoxLayout(pnlDSSV1, javax.swing.BoxLayout.LINE_AXIS));
-
-        tblDSDiem.setAutoCreateRowSorter(true);
-        tblDSDiem.setModel(new javax.swing.table.DefaultTableModel(
+        tblClaScore.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -740,16 +682,101 @@ public final class MainForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblDSDiem.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblClaScore.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblDSDiemMouseClicked(evt);
+                tblClaScoreMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(tblDSDiem);
+        jScrollPane1.setViewportView(tblClaScore);
 
-        pnlDSSV1.add(jScrollPane4);
+        jLabel5.setText("Học sinh");
 
-        pnlDiem.add(pnlDSSV1, java.awt.BorderLayout.CENTER);
+        jScrollPane2.setEnabled(false);
+
+        tblStuScore.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblStuScore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblStuScoreMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblStuScore);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
+                        .addContainerGap(170, Short.MAX_VALUE))))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tblScore.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblScore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblScoreMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(tblScore);
+
+        javax.swing.GroupLayout pnlDiemLayout = new javax.swing.GroupLayout(pnlDiem);
+        pnlDiem.setLayout(pnlDiemLayout);
+        pnlDiemLayout.setHorizontalGroup(
+            pnlDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDiemLayout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE))
+        );
+        pnlDiemLayout.setVerticalGroup(
+            pnlDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlDiemLayout.createSequentialGroup()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 165, Short.MAX_VALUE))
+        );
 
         pnlContent.add(pnlDiem, "cardDiem");
 
@@ -797,13 +824,15 @@ public final class MainForm extends javax.swing.JFrame {
         lblwelcome.setText("Welcome "+ ten);
     }
     
-    public void reload(){
+    public void load(){
         loadClassList();
         loadSubjectList();
-        loadDSDiem();
         loadStudentList();
         loadcbClass();
-        DisEn(false);
+        loadClassScore();
+        loadStuScore(false);
+        loadScore(false);
+        loadScoreType();
     }
     public void loadClassList(){
         DefaultTableModel tbl = new DefaultTableModel();
@@ -844,10 +873,10 @@ public final class MainForm extends javax.swing.JFrame {
         
         List<Subject> listSubject = subjectController.getAllSubject();
         
-        for (int i = 0; i < listSubject.size(); i++) {
-            Subject m = listSubject.get(i);
-            rows[0] = m.getId();
-            rows[1] = m.getName();
+        for (Subject s: listSubject) {
+            mapSubject.put(s.getId(), s.getName());
+            rows[0] = s.getId();
+            rows[1] = s.getName();
             
             tbl.addRow(rows);
         }
@@ -859,11 +888,9 @@ public final class MainForm extends javax.swing.JFrame {
         sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
         sorter.setSortKeys(sortKeys);
         tblSubject.setModel(tbl);
-        tbl.fireTableDataChanged();
     }
     
     public void loadStudentList(){
-        JTable table = new JTable();
         DefaultTableModel tbl = new DefaultTableModel();
         Object rows[] = new Object[6];
         Object cols[] = new Object[6];
@@ -897,81 +924,119 @@ public final class MainForm extends javax.swing.JFrame {
             
             tbl.addRow(rows);
         }
-        table.setModel(tbl);
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tblStudent.getModel());
         tblStudent.setRowSorter(sorter);
 
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
         sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
-        sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
         sorter.setSortKeys(sortKeys);
         tblStudent.setModel(tbl);
     }
     
-    public void loadDSDiem(){
-        JTable table = new JTable();
+    public void loadClassScore(){
         DefaultTableModel tbl = new DefaultTableModel();
-        Object rows[] = new Object[6];
-        Object cols[] = new Object[6];
+        Object rows[] = new Object[2];
+        Object cols[] = new Object[2];
+        cols[0] = "Mã lớp";
+        cols[1] = "Tên lớp";
+        
+        tbl.setColumnIdentifiers(cols);
+        
+        List<Classes> listClass = classController.getAllClass();
+        
+        for (Classes c : listClass) {
+            rows[0] = c.getId();
+            rows[1] = c.getName();
+            
+            tbl.addRow(rows);
+        }
+        tblClaScore.setModel(tbl);
+    }
+    
+    public void loadStuScore(boolean isSelect){
+        DefaultTableModel tbl = new DefaultTableModel();
+        Object rows[] = new Object[2];
+        Object cols[] = new Object[2];
         cols[0] = "Mã sinh viên";
         cols[1] = "Tên sinh viên";
-        cols[2] = "Lớp";
-        cols[3] = "Môn";
-        cols[4] = "Loại điểm";
-        cols[5] = "Điểm";
-               
+        
         tbl.setColumnIdentifiers(cols);
-//        List<Diem> listDiem = diemDAO.getAll();
-//        List<SinhVien> listSV = svDAO.getAll();
-//        List<Lop> listLop = lopDAO.getAll();
-//        List<LoaiDiem> listLD = ldDAO.getAll();
-//        List<MonHoc> listMon = monDAO.getAll();
-//        List<DSDiem> listDSD = diemDAO.getAll1();
-//        for (int i = 0; i < listDiem.size(); i++) {
-//            DSDiem dsd = listDSD.get(i);
-//            
-//            
-//            rows[0] = dsd.getMaSV();
-//            rows[1] = dsd.getTenSV();
-//            rows[2] = dsd.getTenLop();
-//            rows[3] = dsd.getTenMH();
-//            rows[4] = dsd.getTenLoai();
-//            rows[5] = dsd.getDiem();
-//            
-//            tbl.addRow(rows);
-//        }
-        tblDSDiem.setModel(tbl);
+        
+        if(isSelect){
+           int row = tblClaScore.getSelectedRow();
+           List<Student> lstStudent = studentController.getStudentByClass(Integer.parseInt(tblClaScore.getValueAt(row, 0).toString()));
+            for (Student s : lstStudent) {
+                rows[0] = s.getId();
+                rows[1] = s.getName();
+                tbl.addRow(rows);
+            } 
+        }
+        
+        tblStuScore.setModel(tbl);
+    }
+    
+    public void loadScore(boolean isSelect){
+        DefaultTableModel tbl = new DefaultTableModel();
+        Object rows[] = new Object[3];
+        Object cols[] = new Object[3];
+        cols[0] = "Môn học";
+        cols[1] = "Loại điểm";
+        cols[2] = "Điểm";
+        
+        tbl.setColumnIdentifiers(cols);
+        
+        if(isSelect){
+           int row = tblStuScore.getSelectedRow();
+           List<Score> lstScore = scoreController.getScoreByStudent2(Integer.parseInt(tblStuScore.getValueAt(row, 0).toString()));
+           List<ScoreType> lstType = typeController.getAllType();
+           List<Subject> lstSub = subjectController.getAllSubject();
+            for (Score s : lstScore) {
+                rows[0] = mapSubject.get(s.getId().getSubjectId());
+                rows[1] = mapType.get(s.getId().getTypeId());
+                rows[2] = s.getScore();
+                tbl.addRow(rows);
+            } 
+        }
+        
+        tblScore.setModel(tbl);
+    }
+    
+    private void loadScoreType(){
+        List<ScoreType> list = typeController.getAllType();
+        for(ScoreType t : list){
+            mapType.put(t.getId(), t.getName());
+        }
     }
     
     //<editor-fold defaultstate="collapsed" desc="CardLayout">
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CardLayout cardLayout = (CardLayout)pnlContent.getLayout();
         cardLayout.show(pnlContent, "cardDashboard");
-        reload();
+        load();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         CardLayout cardLayout = (CardLayout)pnlContent.getLayout();
         cardLayout.show(pnlContent, "cardLop");
-        reload();
+        load();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CardLayout cardLayout = (CardLayout)pnlContent.getLayout();
         cardLayout.show(pnlContent, "cardMon");
-        reload();
+        load();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         CardLayout cardLayout = (CardLayout)pnlContent.getLayout();
         cardLayout.show(pnlContent, "cardSV");
-        reload();
+        load();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         CardLayout cardLayout = (CardLayout)pnlContent.getLayout();
         cardLayout.show(pnlContent, "cardDiem");
-        reload();
+        load();
     }//GEN-LAST:event_jButton5ActionPerformed
 //</editor-fold>
     
@@ -985,71 +1050,6 @@ public final class MainForm extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_mnThoatActionPerformed
-
-    private void DisEn(boolean e)
-    {
-    }    //</editor-fold>
-    
-        // </editor-fold>
-    
-    // <editor-fold defaultstate="collapsed" desc="Diem">
-    private void btnThemdiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemdiemActionPerformed
-//        ThemDiemDialog d = new ThemDiemDialog(this, true);
-//        d.setVisible(true);
-//        reload();
-    }//GEN-LAST:event_btnThemdiemActionPerformed
-
-    private void btnSuadiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuadiemActionPerformed
-//        int row = tblDSDiem.getSelectedRow();
-//        String ma = tblDSDiem.getValueAt(row, 0).toString();
-//        String tenmh = tblDSDiem.getValueAt(row, 3).toString();
-//        String tenld = tblDSDiem.getValueAt(row, 4).toString();
-//        SuaDiemDialog d = new SuaDiemDialog(this, true, ma,tenmh,tenld);
-//        d.setVisible(true);
-//        reload();
-    }//GEN-LAST:event_btnSuadiemActionPerformed
-
-    private void btnXoadiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoadiemActionPerformed
-//        int row = tblDSDiem.getSelectedRow();
-//        String ma = tblDSDiem.getValueAt(row, 0).toString();
-//        int mamh = 0,mald = 0;
-//        List<MonHoc> listmh = monDAO.getAll();
-//        for (int i = 0; i < listmh.size(); i++) {
-//            MonHoc mh = listmh.get(i);
-//            String tenmh = tblDSDiem.getValueAt(row, 3).toString();
-//            if(tenmh.equals(mh.getTenMH()))
-//                mamh = mh.getMaMH();       
-//        }
-//        
-//        List<LoaiDiem> listld = ldDAO.getAll();
-//        for (int j = 0; j < listld.size(); j++) {
-//            LoaiDiem ld = listld.get(j);
-//            String tenld = tblDSDiem.getValueAt(row, 4).toString();
-//            if(tenld.equals(ld.getTenLoai()))
-//                mald = ld.getMaLoai();
-//        }
-//        
-//        
-//        int i = JOptionPane.showConfirmDialog(pnlContent,"Bạn có chắc chắn muốn xóa ?","Xóa",JOptionPane.YES_NO_OPTION);
-//        if(i==JOptionPane.YES_OPTION)
-//        {
-//            if(diemDAO.XoaDiem(ma,mamh,mald))
-//                JOptionPane.showMessageDialog(pnlContent, "Xóa thành công");
-//            else
-//                JOptionPane.showMessageDialog(pnlContent, "Xóa thất bại");
-//            
-//            loadDSDiem();
-//        }
-    }//GEN-LAST:event_btnXoadiemActionPerformed
-
-    private void btnChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChiTietActionPerformed
-//        ChitietDialog d = new ChitietDialog(this, true);
-//        d.setVisible(true);
-    }//GEN-LAST:event_btnChiTietActionPerformed
-
-    private void tblDSDiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSDiemMouseClicked
-        DisEn(true);
-    }//GEN-LAST:event_tblDSDiemMouseClicked
 
     private void mnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnDangXuatActionPerformed
         this.dispose();
@@ -1079,6 +1079,7 @@ public final class MainForm extends javax.swing.JFrame {
         btnAddStudent.setEnabled(false);
         btnUpdateStudent.setEnabled(true);
         btnDeleteStudent.setEnabled(true);
+        btnStudentScore.setEnabled(true);
     }//GEN-LAST:event_tblStudentMouseClicked
 
     private void tblClassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClassMouseClicked
@@ -1268,11 +1269,26 @@ public final class MainForm extends javax.swing.JFrame {
         btnAddStudent.setEnabled(true);
         btnUpdateStudent.setEnabled(false);
         btnDeleteStudent.setEnabled(false);
+        btnStudentScore.setEnabled(false);
     }//GEN-LAST:event_btnClearStudentActionPerformed
 
-    private void test1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test1ActionPerformed
-        System.out.println(cbClass.getSelectedIndex());
-    }//GEN-LAST:event_test1ActionPerformed
+    private void btnStudentScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentScoreActionPerformed
+        int id = Integer.parseInt(txtStudentId.getText());
+        StudentScoreDialog d = new StudentScoreDialog(this, true, id);
+        d.setVisible(true);
+    }//GEN-LAST:event_btnStudentScoreActionPerformed
+
+    private void tblScoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblScoreMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblScoreMouseClicked
+
+    private void tblClaScoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClaScoreMouseClicked
+        loadStuScore(true);
+    }//GEN-LAST:event_tblClaScoreMouseClicked
+
+    private void tblStuScoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStuScoreMouseClicked
+        loadScore(true);
+    }//GEN-LAST:event_tblStuScoreMouseClicked
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -1314,19 +1330,16 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnAddClass;
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubject;
-    private javax.swing.JButton btnChiTiet;
     private javax.swing.JButton btnClearClass;
     private javax.swing.JButton btnClearStudent;
     private javax.swing.JButton btnClearSubject;
     private javax.swing.JButton btnDeleteClass;
     private javax.swing.JButton btnDeleteStudent;
     private javax.swing.JButton btnDeleteSubject;
-    private javax.swing.JButton btnSuadiem;
-    private javax.swing.JButton btnThemdiem;
+    private javax.swing.JButton btnStudentScore;
     private javax.swing.JButton btnUpdateClass;
     private javax.swing.JButton btnUpdateStudent;
     private javax.swing.JButton btnUpdateSubject;
-    private javax.swing.JButton btnXoadiem;
     private javax.swing.JComboBox<String> cbClass;
     private javax.swing.ButtonGroup genderBtnGroup;
     private javax.swing.JButton jButton1;
@@ -1339,6 +1352,7 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1348,20 +1362,21 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblwelcome;
     private javax.swing.JMenuItem mnDangXuat;
     private javax.swing.JMenuItem mnThoat;
     private javax.swing.JPanel pnlContent;
-    private javax.swing.JPanel pnlDSSV1;
     private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlDiem;
     private javax.swing.JPanel pnlLop;
@@ -1370,11 +1385,12 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSidebar;
     private javax.swing.JRadioButton radioFemale;
     private javax.swing.JRadioButton radioMale;
+    private javax.swing.JTable tblClaScore;
     private javax.swing.JTable tblClass;
-    private javax.swing.JTable tblDSDiem;
+    private javax.swing.JTable tblScore;
+    private javax.swing.JTable tblStuScore;
     private javax.swing.JTable tblStudent;
     private javax.swing.JTable tblSubject;
-    private javax.swing.JButton test1;
     private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtBirthday;
     private javax.swing.JTextField txtClassId;

@@ -114,4 +114,12 @@ public class SubjectDAO {
             session.close();
         }
     }
+    
+    public Subject getSubjectById(int id){
+        Session session = factory.openSession();
+        Subject subject = session.load(Subject.class, id);
+        System.out.println(subject);
+        session.close();
+        return subject;
+    }
 }

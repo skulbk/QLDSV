@@ -119,4 +119,21 @@ public class StudentDAO {
             session.close();
         }
     }
+    
+    public List<Student> getStudentByClass(int id){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        List<Student> lstStudent = new ArrayList<>();
+
+        try {
+            tx = session.beginTransaction();
+            lstStudent = session.createQuery("FROM Student WHERE id_class = :id").setParameter("id", id).list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+        } finally {
+            session.close();
+        }
+        return lstStudent;
+    }
 }
