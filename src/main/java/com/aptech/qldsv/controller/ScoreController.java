@@ -73,16 +73,7 @@ public class ScoreController {
     }
     
     public boolean addScore(Score score){
-        boolean result = false;
-        try {
-            if(scoreDAO.saveScore(score)){
-                result = true;
-            }
-        } catch (Exception e) {
-            System.err.println("Failed:"+e.getMessage());
-            result = false;
-        }
-        return result;
+        return scoreDAO.saveScore(score);
     }
     
     public boolean updateScore(Score score){
