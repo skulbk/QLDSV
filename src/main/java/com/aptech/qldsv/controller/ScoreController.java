@@ -10,6 +10,7 @@ import com.aptech.qldsv.dao.ScoreTypeDAO;
 import com.aptech.qldsv.dao.SubjectDAO;
 import com.aptech.qldsv.dto.StudentScoreDTO;
 import com.aptech.qldsv.entity.Score;
+import com.aptech.qldsv.entity.ScoreId;
 import com.aptech.qldsv.entity.Subject;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,5 +70,38 @@ public class ScoreController {
     
     public List<Score> getScoreByStudent2(int id){
         return scoreDAO.getByStudent(id);
+    }
+    
+    public boolean addScore(Score score){
+        boolean result = false;
+        try {
+            if(scoreDAO.saveScore(score)){
+                result = true;
+            }
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+            result = false;
+        }
+        return result;
+    }
+    
+    public boolean updateScore(Score score){
+        try {
+            scoreDAO.updateScore(score);
+            return true;
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean deleteScore(ScoreId id){
+        try {
+            scoreDAO.deleteScore(id);
+            return true;
+        } catch (Exception e) {
+            System.err.println("Failed:"+e.getMessage());
+            return false;
+        }
     }
 }

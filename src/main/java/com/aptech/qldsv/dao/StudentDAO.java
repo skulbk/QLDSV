@@ -11,12 +11,10 @@ import com.aptech.qldsv.utils.HibernateUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.w3c.dom.ls.LSOutput;
 
 /**
  * @author skulb

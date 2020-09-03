@@ -17,7 +17,7 @@ import javax.persistence.Embeddable;
 public class ScoreId implements Serializable{
     
     @Column(name = "id_student")
-    String studentId;
+    Integer studentId;
     @Column(name = "id_subject")
     Integer subjectId;
     @Column(name = "id_type")
@@ -26,17 +26,17 @@ public class ScoreId implements Serializable{
     public ScoreId() {
     }
 
-    public ScoreId(String studentId, Integer subjectId, Integer typeId) {
+    public ScoreId(Integer studentId, Integer subjectId, Integer typeId) {
         this.studentId = studentId;
         this.subjectId = subjectId;
         this.typeId = typeId;
     }
 
-    public String getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 

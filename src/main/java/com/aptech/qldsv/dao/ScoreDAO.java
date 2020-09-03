@@ -6,6 +6,7 @@
 package com.aptech.qldsv.dao;
 
 import com.aptech.qldsv.entity.Score;
+import com.aptech.qldsv.entity.ScoreId;
 import com.aptech.qldsv.utils.HibernateUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,5 +58,55 @@ public class ScoreDAO {
         }
     }
     
+    public boolean saveScore(Score score) {
+        Session session = factory.openSession();
+        boolean result = false;
+        try {
+            session.beginTransaction();
+            session.save(score);
+            session.getTransaction().commit();
+            System.out.println("insert success!");
+            result = true;
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+            result = false;
+        } finally {
+            session.close();
+            return result;
+        }
+    }
     
+    public void updateScore(Score score){
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Score s = session.get(Score.class, score.getId());
+            s.setScore(score.getScore());
+            session.saveOrUpdate(s);
+            session.getTransaction().commit();
+            System.out.println("update success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void deleteScore(ScoreId id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Score s = session.load(Score.class, id);
+            session.delete(s);
+            session.getTransaction().commit();
+            System.out.println("delete success!");
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }

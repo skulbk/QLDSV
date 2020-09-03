@@ -141,6 +141,7 @@ public class LoginForm extends javax.swing.JFrame {
         }
         if (isOK) {
             this.dispose();
+            main.welcome(username);
             main.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu");
